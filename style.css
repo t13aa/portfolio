@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap');
+
+:root {
+  --gray: #333;
+  --text-secondary: #666;
+  --primary: #ff88e3;
+  --secondary: #26a9f1;
+
+  --line-color: #eee;
+  --bg-color: #fffeff
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+ul {
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+dd {
+  margin: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--gray);
+  font-family: "Zen Maru Gothic", sans-serif;
+}
+
+main.container {
+  display: grid;
+  grid-template-columns: minmax(1rem, 1fr) minmax(0, 700px) minmax(1rem, 1fr);
+  row-gap: 3rem;
+  padding-block: 1rem;
+}
+
+main.container>* {
+  grid-column: 2;
+}
+
+h1,
+h2 {
+  color: var(--primary);
+  text-align: center;
+  text-shadow: 2px 2px 0 #FFF, -2px -2px 0 #FFF, 2px -2px 0 #FFF, -2px 2px 0 #FFF;
+}
+
+h1 {
+  border-bottom: 3px dotted var(--primary);
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary);
+  margin: 3rem 0 2rem;
+}
+
+h3 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+p {
+  text-align: center;
+}
+
+dt,
+.heading-secondary {
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.card {
+  position: relative;
+  background-color: white;
+  border-radius: 1.5rem;
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 700px;
+
+  border: 1px solid var(--line-color);
+
+  box-shadow: 3px 3px var(--line-color);
+
+  transform-origin: center 25px;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+.card>*:first-child {
+  margin-top: 0;
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.profile {
+  dl {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 1rem;
+    justify-content: center;
+  }
+
+  .list-item {
+    align-items: baseline;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+    padding: 1rem;
+  }
+
+  .list-item:not(:last-child) {
+    border-bottom: 2px dashed var(--line-color);
+  }
+
+  dd {
+    font-size: 1.25rem;
+  }
+}
+
+.skill {
+  dl {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 1rem;
+    justify-content: center;
+  }
+
+  .list-item {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 /-1;
+
+    padding: 1rem;
+  }
+
+  .list-item:not(:last-child) {
+    border-bottom: 2px dashed var(--line-color);
+  }
+
+  dd {
+    font-size: 1.125rem;
+  }
+
+  @media screen and (min-width: 700px) {
+    dl {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: auto auto;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 0;
+    }
+
+    dl {
+      flex-direction: row;
+      row-gap: 1rem;
+    }
+
+    .list-item {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-template-columns: none;
+      grid-column: auto;
+      grid-row: 1/-1;
+      justify-items: center;
+      padding: 0 .5rem;
+    }
+
+    .list-item:not(:last-child) {
+      border-right: 2px dashed var(--line-color);
+      border-bottom: none;
+    }
+
+    dt {
+      text-align: center;
+    }
+  }
+}
+
+section.work {
+  .work-list {
+    display: flex;
+
+  }
+
+  .work-list>.list-item {
+    flex: 1;
+    padding: 1rem;
+  }
+
+  a {
+    color: var(--gray);
+    text-decoration: underline dashed var(--line-color) 2px;
+  }
+}
